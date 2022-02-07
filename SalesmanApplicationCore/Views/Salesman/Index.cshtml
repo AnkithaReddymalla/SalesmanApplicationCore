@@ -1,0 +1,33 @@
+﻿
+@model IEnumerable<SalesmanApplicationCore.Models.Salesman>
+
+
+
+<hr />
+<a class="btn btn-success" asp-action="SalesmanEntity">Salesman Entry</a>
+<hr />
+<table class="table table-bordered table-hover table-dark">
+    <thead>
+        <tr>
+            <th>SalesmanId</th>
+            <th>SalesmanName</th>
+            <th>City</th>
+            <th>Commission</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.salesman_id</td>
+                <td>@item.name</td>
+                <td>@item.city</td>
+                <td>@item.commission</td>
+                <td><a class="btn btn-primary" asp-action="EditSalesman" asp-route-salesman_id="@item.salesman_id">Edit</a></td>
+                <td><a class="btn btn-danger" asp-action="DeleteSalesman" asp-route-salesman_id="@item.salesman_id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
